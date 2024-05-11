@@ -19,7 +19,7 @@ public class AdminStatisticsController {
 
 
     @GetMapping("/admin/statistics")
-    public String adminStatistics(Model model) {
+    public String adminStatisticsPage(Model model) {
         model.addAttribute("filterBy", "TẤT CẢ");
         model.addAttribute("orders", orderService.getAllOrders());
         model.addAttribute("totalPriceOfAllOrders", orderService.getTotalPriceOfAllOrders());
@@ -29,7 +29,7 @@ public class AdminStatisticsController {
     }
 
     @GetMapping("/admin/statistics/day")
-    public String adminStatistics_filterByDay(Model model) {
+    public String adminStatisticsPage_filterByDay(Model model) {
         model.addAttribute("filterBy", "THEO NGÀY HÔM NAY");
         model.addAttribute("totalPriceOfAllOrders", orderService.getTotalPriceOfAllOrdersByDay());
         model.addAttribute("theNumberOfAllProductsSold", orderService.getTheNumberOfProductsSoldInAllOrdersByDay());
@@ -39,7 +39,7 @@ public class AdminStatisticsController {
     }
 
     @GetMapping("/admin/statistics/week")
-    public String adminStatistics_filterByWeek(Model model) {
+    public String adminStatisticsPage_filterByWeek(Model model) {
         model.addAttribute("filterBy", "THEO TUẦN NÀY");
         model.addAttribute("orders", orderService.getAllOrdersByWeek());
         model.addAttribute("totalPriceOfAllOrders", orderService.getTotalPriceOfAllOrdersByWeek());
@@ -49,7 +49,7 @@ public class AdminStatisticsController {
     }
 
     @GetMapping("/admin/statistics/month")
-    public String adminStatistics_filterByMonth(Model model) {
+    public String adminStatisticsPage_filterByMonth(Model model) {
         model.addAttribute("filterBy", "THEO THÁNG NÀY");
         model.addAttribute("orders", orderService.getAllOrdersByMonth());
         model.addAttribute("totalPriceOfAllOrders", orderService.getTotalPriceOfAllOrdersByMonth());
