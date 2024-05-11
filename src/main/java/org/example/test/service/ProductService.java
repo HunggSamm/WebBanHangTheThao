@@ -44,6 +44,7 @@ public class ProductService {
         return this.productRepository.findProductsByName(productName);
     }
 
+
     public List<Product> searchProduct(String input){
         return productRepository.findByNameContaining(input);
     }
@@ -54,6 +55,7 @@ public class ProductService {
 
     public boolean isProductExistsInCategory(String name, String name2) {
         return this.productRepository.existsProductByNameAndCategoryName(name, name2);
+
     }
 
 }
