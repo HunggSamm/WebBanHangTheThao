@@ -31,13 +31,12 @@ public class FavoriteController {
     public String getFavorite(Model model, HttpSession session) {
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer == null) {
-            return "redirect:/login"; // Redirect to login if not logged in
+            return "redirect:/login";
         }
 
-        // Retrieve favorite with products that have status "on"
         Favorite favorite = favoriteService.getFavoriteWithProductsOnStatus(customer);
 
-        // Update favorite in session to reflect possibly updated list
+
         session.setAttribute("favorite", favorite);
 
         model.addAttribute("favorite", favorite);

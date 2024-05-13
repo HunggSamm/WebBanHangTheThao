@@ -54,16 +54,16 @@ public class FavoriteService {
         List<Product> products = new ArrayList<>(favorite.getFavoriteProducts());
         boolean[] needUpdate = {false}; // Use an array to hold the flag
 
-        // Filter products to retain only those with the status 'on'
+
         products.removeIf(product -> {
             boolean toRemove = !"on".equals(product.getStatus());
             if (toRemove) {
-                needUpdate[0] = true; // Set the flag if any product is removed
+                needUpdate[0] = true;
             }
             return toRemove;
         });
 
-        // If there are changes in the list, update the database
+
         if (needUpdate[0]) {
             favorite.setFavoriteProducts(products);
             favorite = favoriteRepository.save(favorite);
