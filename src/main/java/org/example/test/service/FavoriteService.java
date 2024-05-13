@@ -48,11 +48,11 @@ public class FavoriteService {
     public Favorite getFavoriteWithProductsOnStatus(Customer customer) {
         Favorite favorite = findByCustomer(customer);
         if (favorite == null) {
-            return null; // Return null if no favorite list is found
+            return null;
         }
 
         List<Product> products = new ArrayList<>(favorite.getFavoriteProducts());
-        boolean[] needUpdate = {false}; // Use an array to hold the flag
+        boolean[] needUpdate = {false};
 
 
         products.removeIf(product -> {
