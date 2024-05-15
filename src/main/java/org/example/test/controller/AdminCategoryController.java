@@ -136,7 +136,7 @@ public class AdminCategoryController {
         Category currentCategory = categoryService.getCategoryById(category.getId());
         if (!currentCategory.getName().equals(category.getName())) {
             if (!currentCategory.getName().equals(category.getName())
-                    && categoryService.isCategoryExists(category.getName())) {
+                    && categoryService.isCategoryExistsAndStatusOn(category.getName())) {
                 model.addAttribute("error", "Tên danh mục đã tồn tại !");
                 model.addAttribute("newCategory", category);
                 return "admin/updateCategory";

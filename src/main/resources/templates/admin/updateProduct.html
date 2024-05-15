@@ -157,6 +157,10 @@
     <div th:replace="admin/sidebar :: sidebar"> </div>
 
     <main class="app-content" xmlns:th="http://www.thymeleaf.org">
+        <div style="background-color: rgb(198, 69, 69);color: white;" th:if="${error}" class="alert alert-danger"
+            role="alert">
+            <span th:text="${error}"></span>
+        </div>
         <div class="app-title">
             <ul class="app-breadcrumb breadcrumb">
                 <li class="breadcrumb-item">Danh sách sản phẩm</li>
@@ -221,9 +225,7 @@
                             </div>
                         </div>
                     </div>
-                    <div th:if="${error}" class="alert alert-danger" role="alert">
-                        <span th:text="${error}"></span>
-                    </div>
+
                     <button class="btn btn-save" type="submit">Lưu lại</button>
                     <a class="btn btn-cancel" href="product.html">Hủy bỏ</a>
                 </form>

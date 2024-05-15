@@ -163,19 +163,16 @@
                 <li class="breadcrumb-item"><a href="#">Sửa danh mục</a></li>
             </ul>
         </div>
+        <div style="background-color: rgb(198, 69, 69);color: white;" th:if="${error}" class="alert alert-danger"
+            role="alert">
+            <span th:text="${error}"></span>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <form class="tile" th:action="@{/admin/category/update}" th:object="${newCategory}" method="post"
                     enctype="multipart/form-data">
-                    <h3 class="tile-title">Tạo mới sản phẩm</h3>
+                    <h3 class="tile-title">Sửa danh mục</h3>
                     <div class="tile-body">
-                        <div class="row element-button">
-                            <div class="col-sm-2">
-                                <a href="/admin/category/create" class="btn btn-add btn-sm"><i
-                                        class="fas fa-folder-plus"></i> Thêm danh
-                                    mục</a>
-                            </div>
-                        </div>
 
                         <div class="row">
                             <div class="form-group col-md-3">
@@ -202,9 +199,7 @@
                             </div>
                         </div>
                     </div>
-                    <div th:if="${error}" class="alert alert-danger" role="alert">
-                        <span th:text="${error}"></span>
-                    </div>
+
                     <button class="btn btn-save" type="submit">Lưu lại</button>
                     <a class="btn btn-cancel" href="product.html">Hủy bỏ</a>
                 </form>
